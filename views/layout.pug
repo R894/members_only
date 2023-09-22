@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      ul
+        li
+          a(href='/') Home
+        if user
+          li
+            a(href='/messages/create') Create Message
+          li
+            a(href='/membership') Membership
+          li
+            a(href='/logout') Logout
+        else
+          li
+            a(href='/login') Login
+
+    block content

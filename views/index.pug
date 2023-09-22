@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  if user
+    p hello #{user.username}
+    if user.admin
+      p you are an admin
+    if user.membership_status 
+      p you are a member
+
+  if messages && messages.length > 0
+    each msg in messages
+      - const messageUrl = '/messages/' + msg._id
+
+      .message-card
+        a(href=messageUrl, class="message-title") #{msg.title}
+        if user
+          p.author= user.membership_status ? `${msg.author.first_name} ${msg.author.last_name}` : 'Anonymous'
+        else
+          p.author= 'Anonymous'
+
+        p.timestamp= msg.timestamp
+        p.message-text= msg.text
+
+        if user && user.admin
+          a(href='/messages/' + msg._id + '/delete', class="delete-button") Delete
+  else
+    p There are no messages

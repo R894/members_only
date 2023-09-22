@@ -1,0 +1,19 @@
+extends layout
+
+block content 
+    - const messageUrl = '/messages/' + message._id
+
+    .message-card
+        h1= message.title
+        if user
+          p.author= user.membership_status ? `${message.author.first_name} ${message.author.last_name}` : 'Anonymous'
+        else
+          p.author= 'Anonymous'
+
+        p.timestamp= message.timestamp
+        p.message-text= message.text
+
+        if user && user.admin
+          a(href='/messages/' + message._id + '/delete', class="delete-button") Delete
+
+    

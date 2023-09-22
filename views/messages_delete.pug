@@ -1,0 +1,11 @@
+extends layout
+
+block content 
+    h2= message.title 
+        p= user.membership_status ? message.author.first_name + ' ' + message.author.last_name : 'Anonymous' 
+        p= message.timestamp 
+        p= message.text 
+        br
+    h3 really delete this message?
+    form(action="", method="post")
+        button(type="submit") Submit

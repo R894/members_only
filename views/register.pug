@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form(action="", method="post")
+    label(for="username") Username:
+    input(type="text", id="username", name="username", placeholder="Enter your username")
+    br
+
+    label(for="email") Email:
+    input(type="email", id="email", name="email", placeholder="Enter your email")
+    br
+
+    label(for="firstname") First Name:
+    input(type="text", id="firstname", name="firstname", placeholder="Enter your first name")
+    br
+
+    label(for="lastname") Last Name:
+    input(type="text", id="lastname", name="lastname", placeholder="Enter your last name")
+    br
+
+    label(for="password") Password:
+    input(type="password", id="password", name="password", placeholder="Enter your password")
+    br
+
+    label(for="confirmpassword") Confirm Password:
+    input(type="password", id="confirmpassword", name="confirmpassword", placeholder="Confirm your password")
+    br
+
+    button(type="submit") Submit
+
+    if errors
+        ul
+            for err in errors
+                li!= err.msg
