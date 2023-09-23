@@ -37,7 +37,7 @@ The Club Membership System is a project assignment as part of [The Odin Project]
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone repository_url_here`
+1. Clone the repository: `git clone https://github.com/R894/members_only.git`
 2. Install dependencies: `npm install`
 3. Set up environment variables `MONGODB_URL, MEMBERSHIP_CODE, PORT` to your desired values
 4. Start the server: `npm start`
